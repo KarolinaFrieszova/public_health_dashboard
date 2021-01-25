@@ -34,12 +34,13 @@ birth_weight <-
 # create feature name & SIMD code look-up table
 feature_simd_lookup <- 
   inner_join(datazone_2011, simd, by = c("dz2011_code" = "feature_code")) %>%
-  group_by(dz2011_code, dz2011_name, ur2_name, ur3_name, ur6_name, hb_name, country_name, value) %>% 
+  group_by(dz2011_code, dz2011_name, la_name, ur2_name, ur3_name, ur6_name, hb_name, country_name, value) %>% 
   summarise()
 # rename columns in this table
 feature_simd_lookup <- feature_simd_lookup %>% 
   rename("data_zone_code" = "dz2011_code") %>%
   rename("data_zone_name" = "dz2011_name") %>%
+  rename("council_area_name" = "la_name") %>%
   rename("health_board_name" = "hb_name") %>%
   rename("urban_rural_2_name" = "ur2_name") %>%
   rename("urban_rural_3_name" = "ur3_name") %>%
@@ -56,10 +57,11 @@ birth_weight_summary <-
   mutate(date_code_copy = date_code) %>% 
   rename("data_zone_code" = "feature_code") %>%
   separate(date_code_copy, into = c("start_year", "end_year"), sep = "\\-", convert = TRUE) %>% 
-  select(data_zone_code,
+  dplyr::select(data_zone_code,
          data_zone_name,
          country_name,
          health_board_name,
+         council_area_name,
          urban_rural_2_name,
          urban_rural_3_name,
          urban_rural_6_name,
@@ -79,6 +81,6 @@ birth_weight_summary <-
 rm(birth_weight)
 
 
-
 # write output to csv file
 write_csv(birth_weight_summary, "clean_data/birth_weight_summary.csv")
+
