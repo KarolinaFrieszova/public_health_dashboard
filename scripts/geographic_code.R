@@ -14,6 +14,8 @@ birth_weight <- read_csv("clean_data/birth_weight_summary.csv") %>%
                                     "Glasgow City" = "Glasgow",
                                     "City of Edinburgh" = "Edinburgh"))
 
+# Geographic data downloaded from https://gadm.org/download_country_v3.html
+# Download GADM data (version 3.6) select United Kingdom
 # download uk data level 2 from GADM  
 uk <- getData('GADM', country = 'GBR', level = 2)
 
