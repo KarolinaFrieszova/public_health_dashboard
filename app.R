@@ -6,7 +6,7 @@ library(tidyr)
 
 # get data
 birth_weight_summary <- 
-  read_csv("birth_weight_summary.csv") %>% 
+  read_csv("clean_data/birth_weight_summary.csv") %>% 
   clean_names()
 
 # council and national summary by SIMD code
@@ -92,7 +92,7 @@ server <- function(input, output) {
         national_and_council_summary %>%
         mutate(simd_code = paste("SIMD", simd_code, " ")) %>%
             filter(council_area_name == input$council_select) %>%
-            select(council_area_name,
+        dplyr::select(council_area_name,
                    date_code,
                    simd_code,
                      percent_low_birth_weight) %>% 
