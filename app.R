@@ -6,7 +6,7 @@ library(tidyr)
 
 # get data
 birth_weight_summary <- 
-  read_csv("clean_data/birth_weight_summary.csv")
+  read_csv("data/clean_data/birth_weight_summary.csv")
 
 # council summary by SIMD code
 council_summary <- birth_weight_summary %>% 

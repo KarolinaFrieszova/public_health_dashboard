@@ -33,14 +33,45 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
         "5.2% Low Birth Weight"
       ),
       
-        # Show a plot of the generated distribution
+        
         mainPanel(
           tabsetPanel(type = "tabs",
-                      tabPanel(tags$i("By Deprivation")),
+                      tabPanel(tags$i("By Deprivation"),
+                               # create lists for select inputs
+                               
+                               ui <- fluidPage(
+                                 titlePanel("Percentage of all births with low birth weight"),
+                                 titlePanel(tags$h4("By deprivation code")),
+                                 fluidRow(
+                                   #Select council area 
+                                   column(3, 
+                                          selectInput("council_select",
+                                                      tags$h5("Select Council Area"),
+                                                      choices = council_list
+                                          )
+                                   ), #close 1st column
+                                   # Graph
+                                   fluidRow(
+                                     column(12,
+                                            plotOutput("deprivation_plot") 
+                                     ) # close 1st column
+                                   ) # close fluidrow 2    
+                                 ) #close fluidpage
+                                 
+                               
+                               ),
                       tabPanel(tags$i("By Population Density")),
                       tabPanel(tags$i("By Geographic")),
                       tabPanel(tags$i("By Hair Colour")),
                       tabPanel(tags$i("By Religion"))
+                     
+                      
+                        
+                      
+                      
+          ) 
+                      
+                      
         )
     )
 )
