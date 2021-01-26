@@ -1,0 +1,102 @@
+---
+title: "Week 7 Group Project - Assessment Criteria"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: paged
+  pdf_document: default
+
+---
+
+<br>
+
+<div class="emphasis">
+
+**Note:** The following are outcomes from SQA's Data Science Project. These are required to complete the PDA, however our assessments are not yet approved by the SQA, so there is no guarantee that doing the current version of the project will be enough. However, if you wish to complete the PDA retrospectively in the future, we recommend trying to meet all the following requirements now already.
+
+</div>
+
+# *Evidence of what we've worked on is shown in italics under each point*
+
+## Description
+
+The description must contain all skills from outcome 1 as well as some skills from outcome 2.
+
+The description must show evidence of knowledge/skills/awareness in the following areas from outcome 1:
+
+  * **Stages in a data science project** 
+    * *Discussing brief with client to ensure we understand their requirementsf*
+    * *Selection of a suitable data set*
+    * *Initial investigation of data and data cleaning*
+    * *Building and testing/checking of data tables, visualisations and app*
+    * *Presentation of results*
+  * **Roles in a data science project team**
+    * *The following roles/tasks have been shared out among team members:*
+      * *Managing relationship with client*
+      * *Selection of a dataset* 
+      * *Data import/cleaning*
+      * *Initial analysis to understand the data*
+      * *Analysis (including statistical analysis) to extract key metrics for the client*
+      * *Data visualisation (key metrics, spatial and time-series analysis)*
+      * *Research (including the historical, social and international context of our data)*
+      * *Report writing*
+      * *Presentation of results to client*
+  * **Collaboration tools**
+    * *Communication tools within the team and with the client - Slack, Zoom*
+    * *Collaborative working tools - GitHub, including advanced techniques such as creating/merging branches*
+  * **Project management methods and software**
+    * *Regular team meetings to understand which tasks are required and to assign these to team members*
+    * *Time management - setting a timetable for project tasks*
+    * *Use of Trello to record tasks and the progress made on them*
+  * **Source control systems** 
+  * **Business understanding including gathering and synthesising requirements for the project**
+    * *Contact with client to understand their requirements, translating these into tasks for team members*
+  * **Data requirements including data sources**
+    * *Research of available data, assessments of whether they contain the correct level of detail to meet client requirements*
+  * **Ethical and legal considerations including data bias**
+    * *Ensuring we use data which is already in the public domain and does mot contain person-identifiable details*
+    * *Check how our data was collected to ensure they had considered the potential for data bias*
+
+**As well as these from outcome 2:**
+
+  * **Project planning and allocation of tasks and resources**
+    * *We have used Trello as a project planning tool, to capture ideas and to ensure these are recorded as tasks and allocated to team members*
+  * **Quality control and quality assurance**
+    * *All team members will check the features of the app and feedback to the team to approve them or suggest improvements*
+  * **Data architecture and data modelling**
+    * *Clean data*
+    * *Concise code without unnecessary duplication etc*
+    * *Clear structure of tables, folders etc*
+  
+
+
+## Dashboard
+
+**The dashboard must contain evidence of all skills/knowledge in outcome 2 not covered by the description**:
+
+  * **Data transformations including data cleaning**
+    * *We have created a dedicated cleaning script to import, link and clean the data, and this creates a new "clean data" csv which is used as the data source for the app*
+    
+  * **Exploratory data analysis**
+      * *Each member of the group has looked at the data and done their own investigations to understand the contents*
+  * **Statistical analyses to identify patterns, trends and relationships in the dataset**
+    * *We have used correlation tests to check relationships*
+  * **Interpreting the results of statistical analysis**
+    * *We will add a summary of key metrics to the  app, and explain their context in the presentation*
+
+## Presentation
+
+**The oral presentation must contain evidence of all skills/knowledge covered by outcome 3. This checklist will be filled in by an observing instructor (either observing live, or watching a recording of the presentation)**
+
+  * **Key performance indicators**
+    * *We should mention the importance of low birth wieght as an indicator of future health, and that it is a key metric used by the Scottish Government*
+  * **Selection of visualisations**
+    * *We are using spatial visualisation (map) and time series analysis (graph of percentage low birth weights over time) along with text/number boxes to highlight key metrics*
+  * **Dashboards and reports**
+  * **Presentation skills**
+  * **Tailoring communication to a specific audience**
+    * *We have had a question/answer session with our client to understand their brief and the level of detail they want, and have tailored our app/presentation accordingly*
+  * **Communicating the findings of the project**
+  
+
