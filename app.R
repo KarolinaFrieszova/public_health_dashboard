@@ -6,10 +6,9 @@ library(tidyr)
 
 # get data
 birth_weight_summary <- 
-  read_csv("clean_data/birth_weight_summary.csv") %>% 
-  clean_names()
+  read_csv("clean_data/birth_weight_summary.csv")
 
-# council and national summary by SIMD code
+# council summary by SIMD code
 council_summary <- birth_weight_summary %>% 
   group_by(council_area_name, simd_code, date_code) %>%
   summarise(all_births = sum(all_births),
@@ -17,7 +16,7 @@ council_summary <- birth_weight_summary %>%
             percent_low_birth_weight = round((100*(sum(low_weight_births)/sum(all_births))),2)) %>% 
   arrange(council_area_name, date_code) 
 
-
+# scotland summary by SIMD code
 all_scotland_summary <- birth_weight_summary %>% 
   mutate(council_area_name = "1 - All Scotland") %>% 
   group_by(council_area_name, simd_code, date_code) %>%
@@ -26,6 +25,7 @@ all_scotland_summary <- birth_weight_summary %>%
             percent_low_birth_weight = round((100*(sum(low_weight_births)/sum(all_births))),2)) %>% 
   arrange(council_area_name, date_code) 
 
+# Combine the council and scotland summaries into one table
 national_and_council_summary <-
   bind_rows(all_scotland_summary, council_summary)
 
