@@ -8,18 +8,32 @@
 #
 
 library(shiny)
+library(here)
+source(here("scripts/graph_input_deprivation.R"))
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
-    output$distPlot <- renderPlot({
+    output$deprivation_plot <- renderPlot({
 
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+        deprivation_summary %>%
+            filter(council_area_name == input$council_select) %>%
+            dplyr::select(council_area_name,
+                          date_code,
+                          simd_code,
+                          percent_low_birth_weight) %>% 
+            ggplot() +
+            aes(x = date_code, y = percent_low_birth_weight, group  = simd_code, colour = simd_code) +
+            geom_line(size = 2) +
+            theme_minimal() +
+            theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+            scale_fill_brewer(palette = "Dark2") +
+            labs(
+                title = "SIMD1 = most deprived, SIMD5 = least deprived",
+                x = "\n 3 year aggregate",
+                y = "Percent of births low weight \n",
+                colour = ""
+            ) 
 
     })
 
