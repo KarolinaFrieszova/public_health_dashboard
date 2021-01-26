@@ -1,0 +1,191 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(janitor)
+library(xlsx)
+```
+
+
+
+```{r}
+#raw_birth_weight <- 
+ # read_csv("raw_data/birth_weight.csv")
+
+raw_birth_weight %>% 
+  filter(FeatureCode == "S92000003",
+         Units == "Percent Of Births") %>% 
+  arrange(desc(DateCode)) %>% 
+  mutate(Value = Value * 3)
+
+#discrepancy in numbers between this and PHS's official statement.
+#could it be something to do with 3 fiscal years? that they've somehow divide the percentage by accident in factoring out the 3 year intervals?
+
+birth_weight_scotland_percent %>% 
+  mutate(below = x1500_below_percent + x1500_to_2499_percent)
+```
+
+
+```{r}
+read_csv("raw_data/12.2_birthweight.csv") %>% 
+  arrange(desc(SIMDVersion))
+
+#Data on the appropriateness of birthweights for gestational age at birth. It is important to be able to differentiate between babies who are light because they are preterm and those who are inappropriately light after adjustment for gestational age at birth.
+
+#Babies identify as appropriate weight for gestational age with a birthweight between the 5th and 95th percentiles. Babies identified as small or large for gestational age are those whose birthweight is under the 5th or over the 95th percentile respectively.
+
+
+```
+
+
+
+
+
+```{r}
+
+birth_weight_scotland <-
+  readxl::read_xlsx("raw_data/tables_on_birth_weight.xlsx", sheet = "Table8.1") %>% 
+  slice(6:20000) %>% 
+  janitor::row_to_names(1) %>% 
+  clean_names()
+
+
+lbw_maternal_age <-
+  readxl::read_xlsx("raw_data/tables_on_birth_weight.xlsx", sheet = "Table8.2")  %>% 
+  slice(6:20000) %>% 
+  janitor::row_to_names(1) %>% 
+  clean_names()
+
+
+lbw_deprivation_category <-
+  readxl::read_xlsx("raw_data/tables_on_birth_weight.xlsx", sheet = "Table8.3")  %>% 
+  slice(6:20000) %>% 
+  janitor::row_to_names(1) %>% 
+  clean_names()
+
+
+lbw_nhs_board_of_residence <-
+readxl::read_xlsx("raw_data/tables_on_birth_weight.xlsx", sheet = "Table8.4")  %>% 
+  slice(6:20000) %>% 
+  janitor::row_to_names(1) %>% 
+  clean_names()
+
+
+lbw_local_authority_of_residence <-
+readxl::read_xlsx("raw_data/tables_on_birth_weight.xlsx", sheet = "Table8.5")  %>% 
+  slice(6:20000) %>% 
+  janitor::row_to_names(1) %>% 
+  clean_names()
+
+
+birth_weight_scotland
+lbw_maternal_age
+lbw_deprivation_category
+lbw_nhs_board_of_residence
+lbw_local_authority_of_residence
+
+
+```
+
+```{r}
+birth_weight_scotland <-
+birth_weight_scotland  %>% 
+  mutate(x1500_below_count = as.numeric(x1500g),
+         x1500_to_2499_count = as.numeric(x1500_2499g),
+         x2500_to_3999_count = as.numeric(x2500_3999g),
+         x4000_above_count = as.numeric(x4000g),
+         
+         x1500_below_percent = as.numeric(x1500g_2),
+         x1500_to_2499_percent = as.numeric(x1500_2499g_2),
+         x2500_to_3999_percent = as.numeric(x2500_3999g_2),
+         x4000_above_percent = as.numeric(x4000g_2),) 
+
+
+
+birth_weight_scotland_percent <- 
+  birth_weight_scotland %>% 
+  select(year, x1500_below_percent:x4000_above_percent) %>% 
+  slice(30:44)
+
+birth_weight_scotland_percent
+  birth_weight_scotland
+         
+lbw_maternal_age
+lbw_deprivation_category
+
+
+lbw_nhs_board_of_residence <-
+lbw_nhs_board_of_residence %>% 
+  mutate(x1500_below_count = as.numeric(x1500g),
+         x1500_to_2499_count = as.numeric(x1500_2499g),
+         x2500_to_3999_count = as.numeric(x2500_3999g),
+         x4000_above_count = as.numeric(x4000g),
+         
+         x1500_below_percent = as.numeric(x1500g_2),
+         x1500_to_2499_percent = as.numeric(x1500_2499g_2),
+         x2500_to_3999_percent = as.numeric(x2500_3999g_2),
+         x4000_above_percent = as.numeric(x4000g_2),) %>% 
+  select(nhs_board_of_residence, x1500_below_percent:x4000_above_percent) 
+
+left_join(lbw_nhs_board_of_residence, birth_weight_summary, by = c()
+
+birth_weight_summary
+
+lbw_local_authority_of_residence
+```
+
+```{r}
+#appropriate_age <-
+
+appropriate_age <-
+read_csv("raw_data/Appropriate Birthweight for Gestational Age.csv") %>% 
+  clean_names()
+
+
+appropriate_age <-
+appropriate_age %>% 
+  select(-id) %>% 
+  separate(financial_year, into = c("financial_year", "end_year"), sep = "/", convert = TRUE) %>% 
+  select(-end_year) %>% 
+  mutate(financial_year = as.numeric(financial_year),
+         council_area_code = ca) %>% 
+  select(-simd_quintile_qf) %>% 
+  filter(financial_year >= 2012,
+         ca != "RA2704")
+
+birth_weight_summary_join
+birth_weight_summary %>% 
+  select(-data_zone_code, 
+         -data_zone_name,
+         )
+inner_join(appropriate_age, birth_weight_summary, by = c("council_area_code" = "la_code"))
+
+
+birth_weight_summary
+appropriate_age
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

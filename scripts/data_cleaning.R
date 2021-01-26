@@ -34,7 +34,7 @@ birth_weight <-
 # create feature name & SIMD code look-up table
 feature_simd_lookup <- 
   inner_join(datazone_2011, simd, by = c("dz2011_code" = "feature_code")) %>%
-  group_by(dz2011_code, dz2011_name, ur2_name, ur3_name, ur6_name, hb_name, country_name, value) %>% 
+  group_by(dz2011_code, dz2011_name, ur2_name, ur3_name, ur6_name, hb_name, country_name, value, la_code, la_name) %>% 
   summarise()
 # rename columns in this table
 feature_simd_lookup <- feature_simd_lookup %>% 
@@ -59,6 +59,8 @@ birth_weight_summary <-
   select(data_zone_code,
          data_zone_name,
          country_name,
+         la_code,
+         la_name,
          health_board_name,
          urban_rural_2_name,
          urban_rural_3_name,
@@ -82,3 +84,5 @@ rm(birth_weight)
 
 # write output to csv file
 write_csv(birth_weight_summary, "clean_data/birth_weight_summary.csv")
+
+view(birth_weight_summary)
