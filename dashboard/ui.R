@@ -8,26 +8,74 @@
 #
 
 library(shiny)
+library(shinythemes)
 
-# Define UI for application that draws a histogram
-shinyUI(fluidPage(
+
+shinyUI(fluidPage(theme = shinytheme("slate"),
+                   
+                   
+                   
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel(tags$h1("Scotland's Low Birth Weights")),
 
     # Sidebar with a slider input for number of bins
     sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
+      sidebarPanel(
+        
+       
+        "59,000 Births",
+        br(),
+        br(),
+        "2019",
+        br(),
+        br(),
+        "5.2% Low Birth Weight"
+      ),
+      
+        
         mainPanel(
-            plotOutput("distPlot")
+          tabsetPanel(type = "tabs",
+                      tabPanel(tags$i("By Deprivation"),
+                               # create lists for select inputs
+                               
+                               ui <- fluidPage(
+                                 titlePanel("Percentage of all births with low birth weight"),
+                                 titlePanel(tags$h4("By deprivation code")),
+                                 fluidRow(
+                                   #Select council area 
+                                   column(3, 
+                                          selectInput("council_select",
+                                                      tags$h5("Select Council Area"),
+                                                      choices = council_list
+                                          )
+                                   ), #close 1st column
+                                   # Graph
+                                   fluidRow(
+                                     column(12,
+                                            plotOutput("deprivation_plot") 
+                                     ) # close 1st column
+                                   ) # close fluidrow 2    
+                                 ) #close fluidpage
+                                 
+                               
+                               ),
+                      tabPanel(tags$i("By Population Density")),
+                      tabPanel(tags$i("By Geographic")),
+                      tabPanel(tags$i("By Hair Colour")),
+                      tabPanel(tags$i("By Religion"))
+                     
+                      
+                        
+                      
+                      
+          ) 
+                      
+                      
         )
     )
-))
+)
+)
+)
+
+

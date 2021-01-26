@@ -3,3 +3,6 @@
 .RData
 .DStore
 *.csv
+*.rds
+*.gpkg
+*.txt
