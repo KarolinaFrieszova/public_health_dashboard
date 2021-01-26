@@ -8,26 +8,43 @@
 #
 
 library(shiny)
+library(shinythemes)
 
-# Define UI for application that draws a histogram
-shinyUI(fluidPage(
+
+shinyUI(fluidPage(theme = shinytheme("slate"),
+                   
+                   
+                   
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel(tags$h1("Scotland's Low Birth Weights")),
 
     # Sidebar with a slider input for number of bins
     sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
+      sidebarPanel(
+        
+       
+        "59,000 Births",
+        br(),
+        br(),
+        "2019",
+        br(),
+        br(),
+        "5.2% Low Birth Weight"
+      ),
+      
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+          tabsetPanel(type = "tabs",
+                      tabPanel(tags$i("By Deprivation")),
+                      tabPanel(tags$i("By Population Density")),
+                      tabPanel(tags$i("By Geographic")),
+                      tabPanel(tags$i("By Hair Colour")),
+                      tabPanel(tags$i("By Religion"))
         )
     )
-))
+)
+)
+)
+
+
