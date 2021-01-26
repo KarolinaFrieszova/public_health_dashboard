@@ -15,7 +15,7 @@ birth_weight <- read_csv("clean_data/birth_weight_summary.csv") %>%
                                     "City of Edinburgh" = "Edinburgh"))
 
 # Geographic data downloaded from https://gadm.org/download_country_v3.html
-# Download GADM data (version 3.6) select United Kingdom
+# download GADM data (version 3.6) select United Kingdom Geopackage
 # download uk data level 2 from GADM  
 uk <- getData('GADM', country = 'GBR', level = 2)
 
@@ -31,11 +31,11 @@ sort(unique(low_birth_percentage$council_area_name))
 scotland <- merge(uk, low_birth_percentage, by.x = "NAME_2", 
                   by.y = "council_area_name", all.x = F)
 
-# Create a continuous palette function
-pal <- colorNumeric("Blues", scotland$percent_low_birth_weight)
+# create a continuous palette function
+pal <- colorNumeric("Oranges", scotland$percent_low_birth_weight)
 
 # plot percentage of low weight births for each council
-leaflet(scotland) %>% 
+map <- leaflet(scotland) %>% 
   addProviderTiles("CartoDB.Positron", 
                    options= providerTileOptions(opacity = 0.50)) %>% 
   addPolygons(fillColor = ~pal(scotland$percent_low_birth_weight),
@@ -52,7 +52,16 @@ leaflet(scotland) %>%
                 dashArray = "",
                 fillOpacity = 1,
                 bringToFront = TRUE),
-              label = ~paste(NAME_2, ", ", percent_low_birth_weight),
+              label = ~paste(NAME_2, percent_low_birth_weight, "%"),
               labelOptions = labelOptions(textsize = "15px",
                                           direction = "auto"))
 
+# add a legend to the map
+map_legend <- map %>%
+  addLegend("bottomright", pal = pal, values = ~percent_low_birth_weight,
+            title = "less than 2.5kg",
+            labFormat = labelFormat(suffix = " %"),
+            opacity = 1)
+
+# view the map
+map_legend
