@@ -60,11 +60,23 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                  
                                
                                ),
-                      tabPanel(tags$i("By Population Density")),
-                      tabPanel(tags$i("By Geographic")),
-                      tabPanel(tags$i("By Hair Colour")),
-                      tabPanel(tags$i("By Religion"))
-                     
+                   
+                               tabPanel(tags$i("By Area"),
+                                        # create lists for select inputs
+                                        
+                                        ui <- fluidPage(
+                                          titlePanel("Percentage of all births within Local Authority Area"),
+                                          titlePanel(tags$h4("By Local Authority")),
+
+                                            fluidRow(
+                                              column(12,
+                                                     plotOutput("map") 
+                                              ) # close 1st column
+                                            ) # close fluidrow 2    
+                                          ) #close fluidpage
+                                          
+                                          
+                                        )
                       
                         
                       
@@ -74,6 +86,7 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                       
         )
     )
+)
 )
 )
 )
