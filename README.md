@@ -33,7 +33,6 @@ We chose to look low birth weight data - this is an important health indicator, 
 | Folder | Contents |
 |-|-|
 | clean_data | The cleaned and joined data produced by the script *data_cleaning.R* |
-| dashboard | The ui and server which create the app |
 | documentation | Further information on the project, including summary report for presentation |
 | raw_data | The source data for the project, taken from https://statistics.gov.scot |
 | scripts | Code used to clean and join raw data files, and to select clean data for the app |
