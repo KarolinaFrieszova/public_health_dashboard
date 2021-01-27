@@ -27,7 +27,7 @@ birth_weight_ur <- birth_weight %>%
 # plot data to the graph
 birth_weight_ur_graph <- birth_weight_ur %>% 
   ggplot()+
-  aes(x = urban_rural_2_name, y = percent_lbw_by_ur)+
+  aes(x = urban_rural_2_name, y = percent_lbw_by_ur, fill = urban_rural_2_name) +
   geom_col(col = "white")+
   facet_wrap(~date_code)+
   coord_flip()+
@@ -39,7 +39,8 @@ birth_weight_ur_graph <- birth_weight_ur %>%
         axis.title.x = element_text(size = 15, hjust = 0.5),
         axis.text.y = element_text(vjust = 0.6, size = 12),
         axis.title.y = element_text(size = 15, hjust = 0.5),
-        strip.text = element_text(size = 12, hjust = 0.5))
+        strip.text = element_text(size = 12, hjust = 0.5))+
+scale_fill_manual(values = c("#800020", "darkgreen"), guide = FALSE)
 
 # 3. calculate the percentage low weight bights by 3 aggregate years
 birth_weight_year <- birth_weight %>% 
@@ -50,7 +51,7 @@ birth_weight_year <- birth_weight %>%
 # plot data to the graph
 birth_weight_year_graph <- birth_weight_year %>% 
   ggplot()+
-  aes(x = date_code, y = percent_lbw_by_year)+
+  aes(x = date_code, y = percent_lbw_by_year, fill = date_code)+
   geom_col(col = "white")+
   labs(x = "\n3 year aggregate",
        y = "Low weight births (%)",
@@ -59,7 +60,9 @@ birth_weight_year_graph <- birth_weight_year %>%
         axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
         axis.title.x = element_text(size = 15, hjust = 0.5),
         axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5))
+        axis.title.y = element_text(size = 15, hjust = 0.5))+
+scale_fill_manual(values = c("#800020", "#800020", "#800020", "#800020", "#800020", "#800020"), guide = FALSE)
+
 
 # 4. calculate the total number of births
 total_births_by_year <- birth_weight %>% 
