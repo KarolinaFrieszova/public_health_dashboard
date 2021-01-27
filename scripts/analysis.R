@@ -27,13 +27,14 @@ birth_weight_ur <- birth_weight %>%
 # plot data to the graph
 birth_weight_ur %>% 
   ggplot()+
-  aes(x = urban_rural_2_name, y = percent_lbw_by_ur)+
+  aes(x = urban_rural_2_name, y = percent_lbw_by_ur, fill = urban_rural_2_name) +
   geom_col(col = "white")+
   facet_wrap(~date_code)+
   coord_flip()+
   labs(x = "Classification\n",
-       y = "\nLow weight births (%)",
-       title = "Percentage of low weight births by Rural Urban Classification\n")
+       y = "\nLow Weight Births (%)",
+       title = "Percentage of low weight births by Rural Urban Classification\n") +
+  scale_fill_manual(values = c("#800020", "darkgreen"), guide = FALSE)
 
 # 3. calculate the percentage low weight bights by 3 aggregate years
 birth_weight_year <- birth_weight %>% 
@@ -44,12 +45,13 @@ birth_weight_year <- birth_weight %>%
 # plot data to the graph
 birth_weight_year %>% 
   ggplot()+
-  aes(x = date_code, y = percent_lbw_by_year)+
+  aes(x = date_code, y = percent_lbw_by_year, fill = date_code)+
   geom_col(col = "white")+
-  labs(x = "\n3 year aggregate",
-       y = "Low weight births (%)\n",
+  labs(x = "\n3 Year Aggregate",
+       y = "Low Weight Births (%)\n",
        title = "Percentage of low weight births in Scotland, 2012 to 2019\n")+
-  theme(axis.text.x = element_text(angle = 15, vjust = 0.6))
+  theme(axis.text.x = element_text(angle = 15, vjust = 0.6)) +
+  scale_fill_manual(values = c("#800020", "#800020", "#800020", "#800020", "#800020", "#800020"), guide = FALSE)
 
 # 4. calculate the total number of births
 total_births_by_year <- birth_weight %>% 
