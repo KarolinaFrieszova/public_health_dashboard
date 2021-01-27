@@ -89,6 +89,6 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
 )
 )
 )
-)
+
 
 
