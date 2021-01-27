@@ -26,30 +26,33 @@ shinyUI(fluidPage(
                      )
                      
                  ),
-                 fluidRow(column(4,
+                 fluidRow(column(6,
                                  plotOutput("all_births_plot")
                      
                           ),
-                          column(4,
+                          column(6,
                                  plotOutput("percentage_by_years")
-                          ),
-                          column(4,
-                                 plotOutput("percentage_ur_graph")
                           )
+                          
                  )
                  
         ),
         tabPanel("By Deprivation",
-                 sidebarLayout(
-                     sidebarPanel(
-                         selectInput("council_select",
-                                     "Select council area:",
-                                     choices = council_list
-                         )
-                     ),
-                    
-                     mainPanel(
-                         plotOutput("deprivation_plot")
+                 fluidRow(
+                     column(12,
+                            selectInput("council_select",
+                                        "Select council area:",
+                                        choices = council_list
+                            )
+                     )
+                 ),
+                 
+                 fluidRow(
+                     column(12,
+                            mainPanel(
+                                plotOutput("deprivation_plot")
+                            )
+                         
                      )
                  )
             
@@ -59,11 +62,16 @@ shinyUI(fluidPage(
                      leafletOutput(outputId = "map_plot")
                         
                  )
+        ),
+            
+        tabPanel("Urban Rural",
+                 fluidRow(
+                     column(12,
+                            plotOutput("percentage_ur_graph")
+                     )
+                 )
+            
         )#,
-            
-#        tabPanel("Findings",
-            
-#        ),
 #        tabPanel("About",
                  
 #        )

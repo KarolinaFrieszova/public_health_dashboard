@@ -2,6 +2,7 @@ library(tidyverse)
 
 birth_weight <- read_csv("clean_data/birth_weight_summary.csv") 
 
+
 # 1. calculate the percentage of low weight births by health board
 birth_weight_hb <- birth_weight %>% 
   group_by(health_board_name) %>% 
@@ -29,8 +30,9 @@ birth_weight_ur_graph <- birth_weight_ur %>%
   ggplot()+
   aes(x = urban_rural_2_name, y = percent_lbw_by_ur, fill = urban_rural_2_name) +
   geom_col(col = "white")+
-  facet_wrap(~date_code)+
-  coord_flip()+
+  facet_grid(~date_code)+
+  #coord_flip()+
+  theme_linedraw()+
   labs(x = "Classification",
        y = "\nLow weight births (%)",
        title = "Percentage of low weight births \nby Rural Urban Classification\n")+
@@ -41,6 +43,7 @@ birth_weight_ur_graph <- birth_weight_ur %>%
         axis.title.y = element_text(size = 15, hjust = 0.5),
         strip.text = element_text(size = 12, hjust = 0.5))+
     scale_fill_manual(values = c("#800020", "darkgreen"), guide = FALSE)
+  
 
 # 3. calculate the percentage low weight bights by 3 aggregate years
 birth_weight_year <- birth_weight %>% 
@@ -53,6 +56,7 @@ birth_weight_year_graph <- birth_weight_year %>%
   ggplot()+
   aes(x = date_code, y = percent_lbw_by_year, fill = date_code)+
   geom_col(col = "white")+
+  theme_linedraw()+
   labs(x = "\n3 year aggregate",
        y = "Low weight births (%)",
        title = "Percentage of low weight births\n")+
@@ -74,6 +78,7 @@ total_births_by_year_graph <- total_births_by_year %>%
   ggplot()+
   aes(x = date_code, y = sum_births_by_year)+
   geom_col(col = "white")+
+  theme_linedraw()+
   labs(x = "\n3 year aggregate",
        y = "Births (1000 units)",
        title = "Number of singleton births\n")+
