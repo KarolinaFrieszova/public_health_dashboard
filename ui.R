@@ -9,9 +9,9 @@ council_list <- read_rds("clean_data/council_list.rds")
 
 shinyUI(fluidPage(
     
-    theme = shinytheme("slate"),
+    theme = shinytheme("superhero"),
     
-    titlePanel("Low Weight Births in Scottish Hospitals"),
+    titlePanel("Low birth Weight in Scottish Hospitals"),
     
     tabsetPanel(
         
@@ -21,16 +21,20 @@ shinyUI(fluidPage(
         tabPanel("Over time",
                  fluidRow(
                      column(12, align="center",
-                         h3("Singleton births in Scotland from 2012 to 2019"),
+                         h3("Live Single births in Scotland from 2012 to 2019"),
                          br()
                      )
                      
                  ),
                  fluidRow(column(6,
+                                 h4("Has the number of births changed over time?", 
+                                    style = "color:#feb24c"),
                                  plotOutput("all_births_plot")
                      
                           ),
                           column(6,
+                                 h4("Does percentage of low weight births differ over time?",
+                                    style = "color:#feb24c"),
                                  plotOutput("percentage_by_years")
                           )
                           
@@ -39,32 +43,62 @@ shinyUI(fluidPage(
         ),
         tabPanel("By Deprivation",
                  fluidRow(
-                     column(12,
+                     column(2,
                             selectInput("council_select",
-                                        "Select council area:",
+                                        tags$i("Select council area:"),
                                         choices = council_list
-                            )
+                            ),
+                            br()
+                     ),
+                     column(10,
+                            br(),
+                            h4("Area deprivation and low birth weight: is there evidence of an “area effect”?",
+                               style = "color:#feb24c")
                      )
                  ),
                  
                  fluidRow(
-                     column(12,
-                            mainPanel(
-                                plotOutput("deprivation_plot")
-                            )
+                     column(7,
+                            plotOutput("deprivation_plot")
                          
+                     ),
+                     column(5,
+                            plotOutput("correlation_graph")
                      )
                  )
             
         ),
-        tabPanel("By Council Area",
+        tabPanel("By Area",
                  fluidRow(
-                     leafletOutput(outputId = "map_plot")
-                        
+                     column(12, align="center",
+                            h4("Does the percentage of low birth weight differ 
+                               across areas?", style = "color:#feb24c"),
+                            br()
+                     )
+                     
+                 ),
+                 fluidRow(
+                     column(7,
+                            h4("By Council Area"),
+                            leafletOutput(outputId = "map_plot")
+                            
+                     ),
+                     column(5,
+                            h4("By Health Board"),
+                            plotOutput("health_board_graph")
+                         
+                     )
                  )
         ),
             
         tabPanel("Urban Rural",
+                 fluidRow(
+                     column(12, align="center",
+                            h4("Is urban or rural location important?", style = "color:#feb24c"),
+                            br()
+                     )
+                     
+                 ),
                  fluidRow(
                      column(12,
                             plotOutput("percentage_ur_graph")
