@@ -137,6 +137,8 @@ left_join(lbw_nhs_board_of_residence, birth_weight_summary, by = c()
 birth_weight_summary
 
 lbw_local_authority_of_residence
+
+lbw_nhs_board_of_residence
 ```
 
 ```{r}
@@ -172,14 +174,55 @@ appropriate_age
 
 
 
+```{r}
+birth_weight <- 
+  read_csv("raw_data/birth_weight.csv") %>% 
+  clean_names()
+
+birth_weight %>% 
+  filter(units != "Births") %>% 
+  view()
+```
 
 
 
 
+```{r}
+birth_weight %>% 
+  filter(feature_code == "S92000003") %>% 
+  filter(date_code == "2017-2019") %>% 
+arrange(measurement, units, birth_weight)
+```
+
+```{r}
+birth_weight %>% 
+  filter(units)
+```
 
 
+```{r}
+birth_weight_summary %>% 
+filter(date_code == "2017-2019",
+       low_weight_births != 0) %>% 
+group_by(country_name) %>%
+summarise(all_births = sum(all_births),
+          low_weight_births = sum(low_weight_births),
+          percent_low_birth_weight = round((100*(sum(low_weight_births)/sum(all_births))),2)) 
+```
 
+```{r}
+mutate(all of scotland ==
+  sum(low_weight_births) / sum (all_births)
+```
 
+```{r}
+birth_weight_summary %>% 
+filter(date_code == "2017-2019") %>% 
+group_by(country_name) %>%
+summarise(all_births = sum(all_births),
+          low_weight_births = sum(low_weight_births),
+          percent_low_birth_weight = round((100*(sum(low_weight_births)/sum(all_births))),2)) 
+```
 
 
 
