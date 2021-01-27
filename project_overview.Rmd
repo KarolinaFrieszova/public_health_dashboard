@@ -7,29 +7,17 @@ output: html_document
 
 Roles & responsibilities of each member
 
-We spent the weekend cleaning the data and understanding it better, we then
-split up tasks with Tom and Neil looking to glean some information from the data 
-and linking it to SIMD, Karolina analysed the data looking for trends and different
-ways to present it whilst Graham worked on the UI.
 
-Everyone worked on 
-Brief description of dashboard topic
+#Everyone worked on 
+#Brief description of dashboard topic
 
-Our dahsboard is based on Public Health Scotland data of Births over the period
-of 2012-2019, this included total births and the percentage of which are termed
-low birth weight, this is when the baby is delivered at a weight of under 5.5lbs.
-This is a crucial public health issue as babies who come under this bracket are 
-much more susceptible to later life issues like diabetes, heart disease and adhd.
-There are many different factors in why a baby may be low weight and we are looking 
-to investigate these but it would be remiss of us not to mention the correlation 
-with deprivation.
+Our dashboard is based on Public Health Scotland data of Births over the period of 2012-2019, this included total births and the percentage of which are termed low birth weight, this is when the baby is delivered at a weight of under 5.5lbs. This is a crucial public health issue as babies who come under this bracket are  much more susceptible to later life issues like diabetes, heart disease and adhd. There are many different factors in why a baby may be low weight and we are looking to investigate these but it would be remiss of us not to mention the correlation  with deprivation.
 
-Our dashboard contains …
+#Our dashboard contains …
 
-5 different visual representations to demonstrate factors and differences in 
-Deprivation, Geography and Local Authority in these years.
+5 different visual representations to demonstrate factors and differences in Deprivation, Geography and Local Authority in these years.
 
-Our health topic is …
+#Our health topic is …
 
 We have chosen Low Weight Births as our topic, as low-weight births are not only a strong indicator of a child's future health and socioeconomic status, but also of those of the mother and therefore of the standards of the healthcare that are available in the area.
 
@@ -40,7 +28,9 @@ The second is that low-weight births are not the only risky categeory when looki
 
 
 
-The dashboard outlines our health topic in terms of …
+
+
+#The dashboard outlines our health topic in terms of …
 Stages of the project
 
     Planning & dashboard wireframe
@@ -55,23 +45,49 @@ Which tools were used in the project
     Git/GitHub (collaboration & version control)
 
 and so on …
-How did you gather and synthesise requirements for the project?
+#How did you gather and synthesise requirements for the project?
 
-We synthesised the information given in the brief by …
+We began by investigating the statistics.gov.scot website, and taking a preliminary look at all of the dataframes as individuals, as well as examining the Scottish Index of Multiple Deprivation (SIMD) and. We then grouped and discussed different dataframes that we had found interesting, and how they could tie in with the brief that we had been assigned. One idea was to look at the relationship between physical health and distance from residence to a green space, but we decided against the idea when we took into account areas which were deprived but also rural, of which there are many in Scotland. 
 
-We used the Q&A session with ‘the client’ to …
+We discussed finding an angle that was not related to drugs and alcohol, and settled on the metric of Low Weight Births. Low Weight Births in a society can be considered a strong indicator of several factors, including underlying maternal health issues, lack health services, and poor prenatal care. We found a dataframe that had Datazone specific entries, which we believed would allow us to be very precise with the data.
 
-We prioritised …
-Motivations for using the data you have chosen
+
+We synthesised the information given in the brief by looking up seeking a dataframe that would give us the corresponding health board code and council area codes for every Datazone code we had, as well as information that told us how rural or urban an area was, and where it fell on the SIMD quintile scale. 
+
+
+We spent the weekend cleaning the data and understanding it better, we then split up tasks with Tom and Neil looking to glean some information from the data and linking it to SIMD, Karolina analysing the data  for trends and different ways to present it, and Graham working on the UI.
+
+
+We used the Q&A session with ‘the client’ to 
+
+
+
+We prioritised creating a 
+
+
+#Motivations for using the data you have chosen
+The main priority for us was to have a dataset that would allow us to be as precise as possible in analysing the topic we chose. We had to make a choice at a certain point between a dataset that had less precise geographical data but more information on the weight of registered births, and one which had things the other way around. These two datasets could not be matched up and so we decided to go for the latter. although it would have been interesting to examine in greater detail the difference between low weight births and extremely low weight births, we thought that having precise geographical data would allow us to carry out more interesting analyses, specifically with regards to the urban/rural divide and the impact of living in an SIMD area. 
+
+
 
 We used the dataset on … to answer … and because it was …
-Data quality and potential bias, including a brief summary of data cleaning and transformations
 
-According to the About tab on the dataset page/dedicated page online, the data quality …
 
-The dataset may/may not be biased because …
+#Data quality and potential bias, including a brief summary of data cleaning and transformations
 
-To clean the datasets we …
+Our data cleaning process took place over the weekend. One of the things that allowed us to do things efficiently was constant communication- we held a Zoom call on both days over the weekend, and were in constant contact over Slack. We each decided to see what we could do individually before regrouping so that when we came together we could each bring our own thoughts on how to clean it. We joined three different datasets: one on low birth weights in each datazone, one on datazone information, and one on SIMD codes. We realised that the birth weight dataframe had given us both the percentage and actual count of LBWs, and we chose to use only the latter, since we would then be able to make our own percentages when grouping by different factors. 
+
+
+#According to the About tab on the dataset page/dedicated page online, the data quality …
+
+One interesting and as-of-yet unresolved issue that we ran into was the contradiction between what was stated in the dataset as published by Public Health Scotland, where there were specifically rows stating that Scotland's LBWs were at around 2% of all births, and the statement made on its website regarding the findings, which claimed that LBWs were at roughly 5%. We spent some time looking at the data from all angles, and finding as much information as we could online, before we decided that the best thing to do would be to use what we had. One thought we had was that because the dataset is presented in an aggregated three year format the average had been divided out over the three years. Regardless of what was happening, we were confronted with the fact that something didn't add up in the data, and so expereienced what data analysts must . 
+
+
+
+
+The dataset may/may not be biased because
+
+
 How is the data on statistics.gov.scot stored and structured
 
 [Hint: This page offers a good starting point for understanding the data structure: https://guides.statistics.gov.scot/article/34-understanding-the-data-structure]
