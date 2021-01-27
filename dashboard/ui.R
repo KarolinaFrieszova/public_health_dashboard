@@ -59,7 +59,8 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                  ) #close fluidpage
                                  
                                
-                               ),
+                               )
+                      ),
                    
                                tabPanel(tags$i("By Area"),
                                         # create lists for select inputs
@@ -88,7 +89,7 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
     )
 )
 )
-)
-)
+
+
 
 
