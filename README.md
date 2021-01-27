@@ -41,17 +41,18 @@ We chose to look low birth weight data - this is an important health indicator, 
 
 ### Source data
 
-The project uses data from the https://statistics.gov.scot website, downloaded as csv files.
+The project uses data from the https://statistics.gov.scot website downloaded as csv files, along with map data from https://gadm.org/download_country_v3.html
 
-**Please note that these csv files are not stored on git hub as some of them are very large**
+**Please note that the csv and map files are not stored on git hub as some of them are very large**
 
 If you would like to recreate this project, please follow the instructions below on where to find the data, and the location and filenames to use when you save them:
 
 
-| File | Description | Download From | Save As |
+| File | Download From | Save As | Description |
 |-|-|-|-|
-| Low birth weight data | Number, and percent, of low birthweight (less than 2500g) babies (single births). | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight | raw_data/birth_weight.csv |
-| Data zone lookup | Geography lookup tables used for aggregation, from 2011 data zones to higher level geographies | https://statistics.gov.scot/data/data-zone-lookup | raw_data/datazone_2011_lookup.csv |
-| Scottish Index of Multiple Deprivation (SIMD) 2020 | Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation | raw_data/SIMD.csv |
+| Low birth weight data | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight | raw_data/birth_weight.csv | Number, and percent, of low birthweight (less than 2500g) babies (single births) |
+| Data zone lookup | https://statistics.gov.scot/data/data-zone-lookup | raw_data/datazone_2011_lookup.csv | Geography lookup tables used for aggregation, from 2011 data zones to higher  level geographies |
+| Scottish Index of Multiple Deprivation (SIMD) 2020 | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation | raw_data/SIMD.csv | Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived |
+| Map data | https://gadm.org/download_country_v3.html | Select country *UK* and click *Geopackage* This downloads a folder called *gadm36_GBR_gpkg*, which should be saved in raw_data | Map reference data used to show council areas |
 
 
