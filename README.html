@@ -490,8 +490,8 @@ summary {
 </div>
 <div id="source-data" class="section level3">
 <h3>Source data</h3>
-<p>The project uses data from the <a href="https://statistics.gov.scot" class="uri">https://statistics.gov.scot</a> website, downloaded as csv files.</p>
-<p><strong>Please note that these csv files are not stored on git hub as some of them are very large</strong></p>
+<p>The project uses data from the <a href="https://statistics.gov.scot" class="uri">https://statistics.gov.scot</a> website downloaded as csv files, along with map data from <a href="https://gadm.org/download_country_v3.html" class="uri">https://gadm.org/download_country_v3.html</a></p>
+<p><strong>Please note that the csv and map files are not stored on git hub as some of them are very large</strong></p>
 <p>If you would like to recreate this project, please follow the instructions below on where to find the data, and the location and filenames to use when you save them:</p>
 <table>
 <colgroup>
@@ -503,29 +503,35 @@ summary {
 <thead>
 <tr class="header">
 <th>File</th>
-<th>Description</th>
 <th>Download From</th>
 <th>Save As</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Low birth weight data</td>
-<td>Number, and percent, of low birthweight (less than 2500g) babies (single births).</td>
 <td><a href="https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight" class="uri">https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight</a></td>
 <td>raw_data/birth_weight.csv</td>
+<td>Number, and percent, of low birthweight (less than 2500g) babies (single births)</td>
 </tr>
 <tr class="even">
 <td>Data zone lookup</td>
-<td>Geography lookup tables used for aggregation, from 2011 data zones to higher level geographies</td>
 <td><a href="https://statistics.gov.scot/data/data-zone-lookup" class="uri">https://statistics.gov.scot/data/data-zone-lookup</a></td>
 <td>raw_data/datazone_2011_lookup.csv</td>
+<td>Geography lookup tables used for aggregation, from 2011 data zones to higher level geographies</td>
 </tr>
 <tr class="odd">
 <td>Scottish Index of Multiple Deprivation (SIMD) 2020</td>
-<td>Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived</td>
 <td><a href="https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation" class="uri">https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation</a></td>
 <td>raw_data/SIMD.csv</td>
+<td>Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived</td>
+</tr>
+<tr class="even">
+<td>Map data</td>
+<td><a href="https://gadm.org/download_country_v3.html" class="uri">https://gadm.org/download_country_v3.html</a></td>
+<td>Select country <em>UK</em> and click <em>Geopackage</em> This downloads a folder called <em>gadm36_GBR_gpkg</em>, which should be saved in raw_data</td>
+<td>Map reference data used to show council areas</td>
 </tr>
 </tbody>
 </table>
