@@ -1,5 +1,4 @@
 library(tidyverse)
-library(janitor)
 library(sp)
 library(raster) 
 library(leaflet)
