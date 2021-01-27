@@ -57,7 +57,7 @@ total_births_by_year <- birth_weight %>%
   summarise(sum_births_by_year = sum(all_births/1000))
 
 # plot data to the graph
-total_births_by_year %>% 
+total_births_by_year_graph <- total_births_by_year %>% 
   ggplot()+
   aes(x = date_code, y = sum_births_by_year)+
   geom_col(col = "white")+
