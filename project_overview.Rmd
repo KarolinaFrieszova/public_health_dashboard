@@ -1,0 +1,91 @@
+---
+title: "Description Outline"
+output: html_document
+---
+# Project Description Outline
+
+
+Roles & responsibilities of each member
+
+We spent the weekend cleaning the data and understanding it better, we then
+split up tasks with Tom and Neil looking to glean some information from the data 
+and linking it to SIMD, Karolina analysed the data looking for trends and different
+ways to present it whilst Graham worked on the UI.
+
+Everyone worked on 
+Brief description of dashboard topic
+
+Our dahsboard is based on Public Health Scotland data of Births over the period
+of 2012-2019, this included total births and the percentage of which are termed
+low birth weight, this is when the baby is delivered at a weight of under 5.5lbs.
+This is a crucial public health issue as babies who come under this bracket are 
+much more susceptible to later life issues like diabetes, heart disease and adhd.
+There are many different factors in why a baby may be low weight and we are looking 
+to investigate these but it would be remiss of us not to mention the correlation 
+with deprivation.
+
+Our dashboard contains …
+
+5 different visual representations to demonstrate factors and differences in 
+Deprivation, Geography and Local Authority in these years.
+
+Our health topic is …
+
+We have chosen Low Weight Births as our topic, as low-weight births are not only a strong indicator of a child's future health and socioeconomic status, but also of those of the mother and therefore of the standards of the healthcare that are available in the area.
+
+There are a few things to consider when looking at low-weight births. The first is that although generally not ideal, they do not necessarily always reflect poor prenatal care. There is a direct link between shorter gestation periods (how long the pregnancy lasts) and low-weight births. 
+
+The second is that low-weight births are not the only risky categeory when looking at the weight of the child. High weight births (over 4000 grams at birth) are also considered unhealthy, and may be caused obesity or maternal diabetes. However, low-weight birth is more likely than over-weight births to be a reflection of underlying social issues such as alcohol and drug abuse, and lack of social services.
+
+
+
+
+The dashboard outlines our health topic in terms of …
+Stages of the project
+
+    Planning & dashboard wireframe
+    Git branching & version control
+    Choosing datasets
+
+and so on …
+Which tools were used in the project
+
+    Zoom (daily stand-ups and occasional mob programming)
+    Trello (planning & task allocation)
+    Git/GitHub (collaboration & version control)
+
+and so on …
+How did you gather and synthesise requirements for the project?
+
+We synthesised the information given in the brief by …
+
+We used the Q&A session with ‘the client’ to …
+
+We prioritised …
+Motivations for using the data you have chosen
+
+We used the dataset on … to answer … and because it was …
+Data quality and potential bias, including a brief summary of data cleaning and transformations
+
+According to the About tab on the dataset page/dedicated page online, the data quality …
+
+The dataset may/may not be biased because …
+
+To clean the datasets we …
+How is the data on statistics.gov.scot stored and structured
+
+[Hint: This page offers a good starting point for understanding the data structure: https://guides.statistics.gov.scot/article/34-understanding-the-data-structure]
+
+The data on statistics.gov.scot is in the form of …
+
+This means …
+
+Benefits of storing the data like this are …
+Ethical and legal considerations of the data
+
+[Hint: this page contains information on the Open Government License which covers most datasets on statistics.gov.scot: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/]
+
+There are no/There may be ethical considerations, because …
+
+The datasets are covered by the Open Government License, which means …
+
