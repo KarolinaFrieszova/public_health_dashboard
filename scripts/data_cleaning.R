@@ -75,7 +75,8 @@ birth_weight_summary <-
   pivot_wider(names_from = birth_weight, values_from = value) %>% 
   rename("all_births" = "Live Singleton Births") %>% 
   rename("low_weight_births" = "Low Weight Births") %>% 
-  arrange(health_board_name, date_code)
+  arrange(health_board_name, date_code) %>% 
+  filter(low_weight_births != 0)
 
 # drop the original large table:
 rm(birth_weight)
