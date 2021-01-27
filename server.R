@@ -20,5 +20,13 @@ shinyServer(function(input, output) {
     output$all_births_plot <- renderPlot({
       total_births_by_year_graph 
     })
+    
+    output$percentage_by_years <- renderPlot({
+      birth_weight_year_graph
+    })
+    
+    output$percentage_ur_graph <- renderPlot({
+      birth_weight_ur_graph
+    })
 
 })

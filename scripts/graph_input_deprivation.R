@@ -51,11 +51,19 @@ make_deprivation_graph <- function(council_select){
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
     scale_fill_brewer(palette = "Dark2") +
     labs(
-      title = "SIMD1 = most deprived, SIMD5 = least deprived",
-      x = "\n 3 year aggregate",
-      y = "Percent of births low weight \n",
-      colour = ""
-    ) 
+      title = "Percentage of low weight births by Scottish Index of Multiple Deprivation\n",
+      x = "\n3 year aggregate",
+      y = "Low weight births (%)\n",
+      caption = "SIMD1 = most deprived, SIMD5 = least deprived",
+      colour = "SIMD code")+
+    theme(plot.title = element_text(size = 20, hjust = 0.5),
+          axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
+          axis.title.x = element_text(size = 15, hjust = 0.5),
+          axis.text.y = element_text(vjust = 0.6, size = 12),
+          axis.title.y = element_text(size = 15, hjust = 0.5),
+          plot.caption = element_text(size = 12),
+          legend.title = element_text(size = 15),
+          legend.text = element_text(size = 12))
 }
 
 
