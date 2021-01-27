@@ -46,23 +46,25 @@ make_deprivation_graph <- function(council_select){
                   percent_low_birth_weight) %>% 
     ggplot() +
     aes(x = date_code, y = percent_low_birth_weight, group  = simd_code, colour = simd_code) +
-    geom_line(size = 2) +
+    geom_line(size = 3) +
     theme_linedraw()+
     #scale_fill_brewer(palette = "Dark2") +
     labs(
-      title = "Percentage of low weight births by Scottish Index of Multiple Deprivation\n",
+      title = "% of Low birth weight by Scottish Index of Multiple Deprivation\n",
       x = "\n3 year aggregate",
-      y = "Low weight births (%)\n",
+      y = "Low birth weight (%)\n",
       caption = "SIMD1 = most deprived, SIMD5 = least deprived",
       colour = "SIMD code")+
-    theme(plot.title = element_text(size = 20, hjust = 0.5),
+    theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
           axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
           axis.title.x = element_text(size = 15, hjust = 0.5),
           axis.text.y = element_text(vjust = 0.6, size = 12),
           axis.title.y = element_text(size = 15, hjust = 0.5),
           plot.caption = element_text(size = 12),
           legend.title = element_text(size = 15),
-          legend.text = element_text(size = 12))
+          legend.text = element_text(size = 12))+
+    scale_color_manual(values = c("#d95f02","#1b9e77", "#7570b3", "#1c9099", "#c51b8a"))
+                                
 }
 
 
