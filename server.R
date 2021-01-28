@@ -13,6 +13,14 @@ shinyServer(function(input, output) {
         make_deprivation_graph(input$council_select)
     })
     
+    output$f_smoking_graph <- renderPlot({
+      female_smoking_graph
+    })
+    
+    output$f_weight <- renderPlot({
+      female_weight
+    })
+    
     output$map_plot <- renderLeaflet({
       map_legend
     })
