@@ -58,7 +58,8 @@ We synthesised the information given in the brief by looking up seeking a datafr
 We spent the weekend cleaning the data and understanding it better, we then split up tasks with Tom and Neil looking to glean some information from the data and linking it to SIMD, Karolina analysing the data  for trends and different ways to present it, and Graham working on the UI.
 
 
-We used the Q&A session with ‘the client’ to 
+We used the Q&A session with ‘the client’ to check level of detail they wanted to see in the report, to ensure that we were following the biref correctly, and to ask 
+
 
 
 
