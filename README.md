@@ -49,7 +49,7 @@ If you would like to recreate this project, please follow the instructions below
 
 | File | Download From | Save As | Description |
 |-|-|-|-|
-| Scottish Health Survey-Scotland level data | Scottish Health Survey-Scotland level data | raw_data/health_scotland.csv | Indicators of population health and related risk factors from the Scottish Health Survey (2008-2019) |
+| Scottish Health Survey-Scotland level data | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-health-survey-scotland-level-data | raw_data/health_scotland.csv | Indicators of population health and related risk factors from the Scottish Health Survey (2008-2019) |
 | Low birth weight data | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight | raw_data/birth_weight.csv | Number, and percent, of low birthweight (less than 2500g) babies (single births) |
 | Data zone lookup | https://statistics.gov.scot/data/data-zone-lookup | raw_data/datazone_2011_lookup.csv | Geography lookup tables used for aggregation, from 2011 data zones to higher  level geographies |
 | Scottish Index of Multiple Deprivation (SIMD) 2020 | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation | raw_data/SIMD.csv | Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived |
