@@ -4,7 +4,7 @@ library(raster)
 library(leaflet)
 
 # read in clean data
-birth_weight <- read_csv("clean_data/birth_weight_summary.csv") 
+birth_weight_summary <- read_csv("clean_data/birth_weight_summary.csv") 
 
 # Geographic data downloaded from https://gadm.org/download_country_v3.html
 # download GADM data (version 3.6) select United Kingdom  - Geopackage
