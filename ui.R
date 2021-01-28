@@ -12,19 +12,33 @@ shinyUI(fluidPage(
     
     theme = shinytheme("superhero"),
     
-    titlePanel("Low birth Weight in Scottish Hospitals"),
+    titlePanel("Low Weight Births in Scottish Hospitals"),
     
     tabsetPanel(
         
-#        tabPanel("Introduction",
+        tabPanel("Health Indicators",
+                 fluidRow(
+                     column(12, align="center",
+                            h4("General health indicators reported by females", 
+                               style = "color:#feb24c")
+                     ),
+                     br()
+                 ),
+                 fluidRow(
+                     column(6,
+                         plotOutput("f_smoking_graph")
+                     ),
+                     column(6,
+                         plotOutput("f_weight")
+                     )
+                 )
                  
-#        ),
+        ),
         tabPanel("Over time",
                  fluidRow(
                      column(12, align="center",
                          h4("Live Single births in Scotland from 2012 to 2019")
                      )
-                     
                  ),
                  fluidRow(column(6,
                                  h4("Has the number of births changed over time?", 
@@ -71,7 +85,7 @@ shinyUI(fluidPage(
         tabPanel("By Area",
                  fluidRow(
                      column(12, align="center",
-                            h4("Does the percentage of low birth weight differ 
+                            h4("Does the percentage of low weight births differ 
                                across areas?", style = "color:#feb24c")
                      )
                      

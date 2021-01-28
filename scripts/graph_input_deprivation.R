@@ -48,11 +48,10 @@ make_deprivation_graph <- function(council_select){
     aes(x = date_code, y = percent_low_birth_weight, group  = simd_code, colour = simd_code) +
     geom_line(size = 3) +
     theme_linedraw()+
-    #scale_fill_brewer(palette = "Dark2") +
     labs(
-      title = "% of Low birth weight by Scottish Index of Multiple Deprivation\n",
+      title = "% of Low Weight Births by Scottish Index of Multiple Deprivation\n",
       x = "\n3 year aggregate",
-      y = "Low birth weight (%)\n",
+      y = "Low weight births(%)\n",
       caption = "SIMD1 = most deprived, SIMD5 = least deprived",
       colour = "SIMD code")+
     theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
