@@ -3,19 +3,13 @@ library(sp)
 library(raster) 
 library(leaflet)
 
-# read in data and rename to match council names in from GADM
-birth_weight <- read_csv("clean_data/birth_weight_summary.csv") %>% 
-  mutate(council_area_name = recode(council_area_name,
-                                    "Aberdeen City" = "Aberdeen",
-                                    "Na h-Eileanan Siar" = "Eilean Siar",
-                                    "Perth and Kinross" = "Perthshire and Kinross",
-                                    "Dundee City" = "Dundee",
-                                    "Glasgow City" = "Glasgow",
-                                    "City of Edinburgh" = "Edinburgh"))
+# read in clean data
+birth_weight <- read_csv("clean_data/birth_weight_summary.csv") 
 
 # Geographic data downloaded from https://gadm.org/download_country_v3.html
-# download GADM data (version 3.6) select United Kingdom Geopackage
-# download uk data level 2 from GADM  
+# download GADM data (version 3.6) select United Kingdom  - Geopackage
+
+# getData downloads level 2 from GADM uk data
 uk <- getData('GADM', country = 'GBR', level = 2)
 
 # calculate percentage of low weight births
@@ -24,16 +18,15 @@ low_birth_percentage <- birth_weight %>%
   summarise(percent_low_birth_weight = 
               round((100*(sum(low_weight_births)/sum(all_births))),2))
 
-sort(unique(low_birth_percentage$council_area_name))
 
-# merge Spatial Polygons Data Frame with low birth data frame containing low weight birth percentage
+# merge Spatial Polygons Data Frame with low birth data frame containing low birth weight percentage
 scotland <- merge(uk, low_birth_percentage, by.x = "NAME_2", 
                   by.y = "council_area_name", all.x = F)
 
 # create a continuous palette function
 pal <- colorNumeric("Oranges", scotland$percent_low_birth_weight)
 
-# plot percentage of low weight births for each council
+# plot percentage of low birth weight for each council
 map <- leaflet(scotland) %>% 
   addProviderTiles("CartoDB.Positron", 
                    options= providerTileOptions(opacity = 0.50)) %>% 
@@ -58,9 +51,9 @@ map <- leaflet(scotland) %>%
 # add a legend to the map
 map_legend <- map %>%
   addLegend("bottomright", pal = pal, values = ~percent_low_birth_weight,
-            title = "less than 2.5kg",
+            title = "less than 5.5lbs",
             labFormat = labelFormat(suffix = " %"),
             opacity = 1)
 
 # view the map
-map_legend
+# map_legend

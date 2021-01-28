@@ -55,6 +55,14 @@ birth_weight_summary <-
   filter(units == "Births",
          measurement == "Count") %>% 
   mutate(date_code_copy = date_code) %>% 
+  # rename councils to match council names in from GADM dataset used geographic_code.R
+  mutate(council_area_name = recode(council_area_name,
+                                    "Aberdeen City" = "Aberdeen",
+                                    "Na h-Eileanan Siar" = "Eilean Siar",
+                                    "Perth and Kinross" = "Perthshire and Kinross",
+                                    "Dundee City" = "Dundee",
+                                    "Glasgow City" = "Glasgow",
+                                    "City of Edinburgh" = "Edinburgh")) %>% 
   rename("data_zone_code" = "feature_code") %>%
   separate(date_code_copy, into = c("start_year", "end_year"), sep = "\\-", convert = TRUE) %>% 
   dplyr::select(data_zone_code,
