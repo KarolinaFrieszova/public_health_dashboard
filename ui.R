@@ -5,6 +5,7 @@ library(here)
 library(sp)
 library(raster) 
 library(leaflet)
+
 council_list <- read_rds("clean_data/council_list.rds")
 
 shinyUI(fluidPage(
@@ -21,8 +22,7 @@ shinyUI(fluidPage(
         tabPanel("Over time",
                  fluidRow(
                      column(12, align="center",
-                         h3("Live Single births in Scotland from 2012 to 2019"),
-                         br()
+                         h4("Live Single births in Scotland from 2012 to 2019")
                      )
                      
                  ),
@@ -43,14 +43,14 @@ shinyUI(fluidPage(
         ),
         tabPanel("By Deprivation",
                  fluidRow(
-                     column(2,
+                     column(3,
                             selectInput("council_select",
                                         tags$i("Select council area:"),
                                         choices = council_list
                             ),
                             br()
                      ),
-                     column(10,
+                     column(9,
                             br(),
                             h4("Area deprivation and low birth weight: is there evidence of an “area effect”?",
                                style = "color:#feb24c")
@@ -72,8 +72,7 @@ shinyUI(fluidPage(
                  fluidRow(
                      column(12, align="center",
                             h4("Does the percentage of low birth weight differ 
-                               across areas?", style = "color:#feb24c"),
-                            br()
+                               across areas?", style = "color:#feb24c")
                      )
                      
                  ),

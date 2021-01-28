@@ -3,8 +3,7 @@ library(ggpubr)
 
 birth_weight <- read_csv("clean_data/birth_weight_summary.csv") 
 
-
-# 1. calculate the percentage of low weight births by health board
+# 1. calculate the percentage of low birth weight by health board
 birth_weight_hb <- birth_weight %>% 
   group_by(health_board_name) %>% 
   summarise(percent_lbw_by_hb = 
@@ -26,7 +25,8 @@ birth_weight_hb_graph <- birth_weight_hb %>%
         axis.text.y = element_text(vjust = 0.6, size = 12),
         axis.title.y = element_text(size = 15, hjust = 0.5))
 
-# 2. calculate the percentage of low weight births by Urban Rural Classification over our time period
+
+# 2. calculate the percentage of low birth weight by Urban Rural Classification over our time period
 birth_weight_ur <- birth_weight %>% 
   group_by(date_code, urban_rural_2_name) %>% 
   summarise(percent_lbw_by_ur = 
@@ -52,7 +52,7 @@ birth_weight_ur_graph <- birth_weight_ur %>%
     scale_fill_manual(values = c("#d95f02", "#1b9e77"), guide = FALSE)
   
 
-# 3. calculate the percentage low weight bights by 3 aggregate years
+# 3. calculate the percentage low birth weight by 3 aggregate years
 birth_weight_year <- birth_weight %>% 
   group_by(date_code) %>% 
   summarise(percent_lbw_by_year = 
@@ -72,7 +72,6 @@ birth_weight_year_graph <- birth_weight_year %>%
         axis.title.x = element_text(size = 15, hjust = 0.5),
         axis.text.y = element_text(vjust = 0.6, size = 12),
         axis.title.y = element_text(size = 15, hjust = 0.5))
-    #scale_fill_manual(values = c("#800020", "#800020", "#800020", "#800020", "#800020", "#800020"), guide = FALSE)
 
 
 # 4. calculate the total number of births
@@ -102,7 +101,8 @@ correlation_graph <- birth_weight %>%
   ggscatter(x = "simd_code", y = "percentage_lbw", 
             add = "reg.line", conf.int = TRUE, 
             cor.coef = TRUE, cor.method = "pearson",
-            xlab = "\nSIMD", ylab = "Low birth weight (%)\n")+
+            xlab = "\nSIMD", ylab = "Low birth weight (%)\n",
+            color = "#1c9099")+
   theme_linedraw()+
   labs(title = "Relation between low birth weight and SIMD\n")+
   theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
