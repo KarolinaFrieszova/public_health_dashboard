@@ -13,7 +13,7 @@ birth_weight <- read_csv("clean_data/birth_weight_summary.csv")
 uk <- getData('GADM', country = 'GBR', level = 2)
 
 # calculate percentage of low weight births
-low_birth_percentage <- birth_weight %>%
+low_birth_percentage <- birth_weight_summary %>%
   group_by(council_area_name) %>% 
   summarise(percent_low_birth_weight = 
               round((100*(sum(low_weight_births)/sum(all_births))),2))
