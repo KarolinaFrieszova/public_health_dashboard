@@ -448,7 +448,7 @@ summary {
 <li>Demographic: Who is most affected by this issue? (Who should be targeted with efforts?)</li>
 </ul>
 <p>Additionally, we were told that it would be interesting to see how this issue differs between areas with high and low SIMD (Scottish Index of Multiple Deprivation) ranks.</p>
-<p>We chose to look low birth weight data - this is an important health indicator, because low birth weight increases the risk of childhood mortality and of developmental problems for the child, and is associated with poorer health in later life: <a href="https://www.nhs.uk/Scorecard/Pages/IndicatorFacts.aspx?MetricId=8308" class="uri">https://www.nhs.uk/Scorecard/Pages/IndicatorFacts.aspx?MetricId=8308</a></p>
+<p>For the specific health topic, we chose to look low birth weight data - this is an important health indicator, because low birth weight increases the risk of childhood mortality and of developmental problems for the child, and is associated with poorer health in later life: <a href="https://www.nhs.uk/Scorecard/Pages/IndicatorFacts.aspx?MetricId=8308" class="uri">https://www.nhs.uk/Scorecard/Pages/IndicatorFacts.aspx?MetricId=8308</a></p>
 <p><strong>Further information on the project can be found in the documentation folder.</strong></p>
 </div>
 <div id="folder-structure" class="section level3">
@@ -475,7 +475,7 @@ summary {
 </tr>
 <tr class="odd">
 <td>raw_data</td>
-<td>The source data for the project, taken from <a href="https://statistics.gov.scot" class="uri">https://statistics.gov.scot</a></td>
+<td>The source data for the project - see details below</td>
 </tr>
 <tr class="even">
 <td>scripts</td>
@@ -506,24 +506,30 @@ summary {
 </thead>
 <tbody>
 <tr class="odd">
+<td>Scottish Health Survey-Scotland level data</td>
+<td>Scottish Health Survey-Scotland level data</td>
+<td>raw_data/health_scotland.csv</td>
+<td>Indicators of population health and related risk factors from the Scottish Health Survey (2008-2019)</td>
+</tr>
+<tr class="even">
 <td>Low birth weight data</td>
 <td><a href="https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight" class="uri">https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight</a></td>
 <td>raw_data/birth_weight.csv</td>
 <td>Number, and percent, of low birthweight (less than 2500g) babies (single births)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Data zone lookup</td>
 <td><a href="https://statistics.gov.scot/data/data-zone-lookup" class="uri">https://statistics.gov.scot/data/data-zone-lookup</a></td>
 <td>raw_data/datazone_2011_lookup.csv</td>
 <td>Geography lookup tables used for aggregation, from 2011 data zones to higher level geographies</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Scottish Index of Multiple Deprivation (SIMD) 2020</td>
 <td><a href="https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation" class="uri">https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation</a></td>
 <td>raw_data/SIMD.csv</td>
 <td>Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Map data</td>
 <td><a href="https://gadm.org/download_country_v3.html" class="uri">https://gadm.org/download_country_v3.html</a></td>
 <td>Select country <em>UK</em> and click <em>Geopackage</em> This downloads a folder called <em>gadm36_GBR_gpkg</em>, which should be saved in raw_data</td>
