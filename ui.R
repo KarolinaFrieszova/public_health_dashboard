@@ -37,7 +37,7 @@ shinyUI(fluidPage(
         tabPanel("Over time",
                  fluidRow(
                      column(12, align="center",
-                         h4("Live Single births in Scotland from 2012 to 2019")
+                         h4("Full Term Live Single Births in Scotland from 2012 to 2019")
                      )
                  ),
                  fluidRow(column(6,

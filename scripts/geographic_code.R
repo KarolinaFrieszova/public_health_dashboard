@@ -4,7 +4,7 @@ library(raster)
 library(leaflet)
 
 # read in clean data
-birth_weight <- read_csv("clean_data/birth_weight_summary.csv") 
+birth_weight_summary <- read_csv("clean_data/birth_weight_summary.csv") 
 
 # Geographic data downloaded from https://gadm.org/download_country_v3.html
 # download GADM data (version 3.6) select United Kingdom  - Geopackage
@@ -13,7 +13,7 @@ birth_weight <- read_csv("clean_data/birth_weight_summary.csv")
 uk <- getData('GADM', country = 'GBR', level = 2)
 
 # calculate percentage of low weight births
-low_birth_percentage <- birth_weight %>%
+low_birth_percentage <- birth_weight_summary %>%
   group_by(council_area_name) %>% 
   summarise(percent_low_birth_weight = 
               round((100*(sum(low_weight_births)/sum(all_births))),2))
