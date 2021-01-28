@@ -21,14 +21,11 @@ simd <- simd %>%
          simd_domain == "SIMD")
 
 
-
 # get birth weight data 
 # source: https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight
 birth_weight <- 
   read_csv("raw_data/birth_weight.csv") %>% 
   clean_names()
-
-
 
 
 # create feature name & SIMD code look-up table
@@ -43,8 +40,6 @@ feature_simd_lookup <- feature_simd_lookup %>%
   rename("council_area_name" = "la_name") %>%
   rename("health_board_name" = "hb_name") %>%
   rename("urban_rural_2_name" = "ur2_name") %>%
-  rename("urban_rural_3_name" = "ur3_name") %>%
-  rename("urban_rural_6_name" = "ur6_name") %>%
   rename("simd_code" = "value")
 
 
@@ -64,18 +59,11 @@ birth_weight_summary <-
                                     "Glasgow City" = "Glasgow",
                                     "City of Edinburgh" = "Edinburgh")) %>% 
   rename("data_zone_code" = "feature_code") %>%
-  separate(date_code_copy, into = c("start_year", "end_year"), sep = "\\-", convert = TRUE) %>% 
-  dplyr::select(data_zone_code,
-         data_zone_name,
-         country_name,
+  dplyr::select(
          health_board_name,
          council_area_name,
          urban_rural_2_name,
-         urban_rural_3_name,
-         urban_rural_6_name,
          date_code,
-         start_year,
-         end_year,
          simd_code,
          birth_weight,
          value) %>% 
