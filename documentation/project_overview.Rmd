@@ -80,12 +80,11 @@ Our data cleaning process took place over the weekend. One of the things that al
 
 #According to the About tab on the dataset page/dedicated page online, the data quality …
 
-One interesting and as-of-yet unresolved issue that we ran into was the contradiction between what was stated in the dataset as published by Public Health Scotland, where there were specifically rows stating that Scotland's LBWs were at around 2% of all births, and the statement made on its website regarding the findings, which claimed that LBWs were at roughly 5%. We spent some time looking at the data from all angles, and finding as much information as we could online, before we decided that the best thing to do would be to use what we had. One thought we had was that because the dataset is presented in an aggregated three year format the average had been divided out over the three years. Regardless of what was happening, we were confronted with the fact that something didn't add up in the data, and so expereienced what data analysts must . 
+One interesting and as-of-yet unresolved issue that we ran into was the contradiction between what was stated in the dataset as published by Public Health Scotland, where there were specifically rows stating that Scotland's LBWs were at around 2% of all births, and the statement made on its website regarding the findings, which claimed that LBWs were at roughly 5%. We spent some time looking at the data from all angles, and finding as much information as we could online, before we decided that the best thing to do would be to use what we had. One thought we had was that because the dataset is presented in an aggregated three year format the average had been divided out over the three years. However, we decided that it isn't for us as the analysts to question the contents of the dataset, and just to analyse what is available to us. 
 
 
 
 
-The dataset may/may not be biased because
 
 
 How is the data on statistics.gov.scot stored and structured

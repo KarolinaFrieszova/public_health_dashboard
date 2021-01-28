@@ -56,4 +56,5 @@ map_legend <- map %>%
             opacity = 1)
 
 # view the map
-# map_legend
+
+map_legend
