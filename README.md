@@ -1,58 +1,81 @@
-# CodeClan data analysis course week 8 - group project
+| Title                                 | Date        |
+| -----------                           | ----------- |
+| Dashboard Project - Health in Scotland| 2021-02-01  |
 
-## Public health dashboard - low birth weight in Scotland
-
-| Authors |
-|-|
-| Neil Allan |
-| Graham Angus |
-| Karolina Frieszova |
-| Tom Jang |
+# Dashboard Project - Public Health in Scotland Interactive Dashboard
 
 
-### Project overview
 
-We were assigned to a group and asked to create an app which gives an overview of Scottish public health over the past 5-10 years.
+## Overview
 
-We were also asked look at a specific health topic topic in this area and present this in a dashboard from three perspectives:
+This repository showcases a dashboard app created using R studio and Shiny functionality to explore health data in Scotland.
 
-* Temporal: How has this issue changed over time? (Is it getting better or worse?)
-* Geographic: How does this issue differ between areas in Scotland? (Where should efforts be focussed?)
-* Demographic: Who is most affected by this issue? (Who should be targeted with efforts?)
+The team created a dashboard which allowed the user to explore data on low birthweight - this is an important health indicator, because low birth weight increases the risk of childhood mortality and of developmental problems for the child, and is associated with poorer health in later life. 
 
-Additionally, we were told that it would be interesting to see how this issue differs between areas with high and low SIMD (Scottish Index of Multiple Deprivation) ranks.
-
-For the specific health topic, we chose to look low birth weight data - this is an important health indicator, because low birth weight increases the risk of childhood mortality and of developmental problems for the child, and is associated with poorer health in later life: https://www.nhs.uk/Scorecard/Pages/IndicatorFacts.aspx?MetricId=8308
+The dashboard allowed an exploration of key health factors which have an impact on birthweight, along with an analysis of the data over time, by geographical area, and by level of deprivation.
+Data was sourced from the Scottish Government.
 
 **Further information on the project can be found in the documentation folder.**
 
+## Team Members
+
+Our team of four comprised Neil Allan, Graham Angus, Karolina Frieszova and Tom Jang, all from CodeClan D6 Data Analysis cohort.
+
+## Process Methodology
+
+The purpose of this project was look loser at a specific health topic and to analyse it from three perspectives: temporal, geographic, and demographic.
+
+Project required planing, tasks allocation, quality control, data mining, visualisation, description and presentation of findings.
+
+The team used data from the Scottish Government website, which required some cleaning and wrangling. The data sets required levels of filtering in order to allow the user to explore by different variables such as council area, health board, and deprivation.
+
+We worked on the group project in remote working environment. Communication, collaboration and project management was maintained by using tools such as Zoom, Slack, GitHub, and Trello.
+
+## Packages Used
+
+The main packages used for cleaning and analysis were `tidyverse`, `janitor`, and `ggpubr`. The packages used to manipulate the spacial data and to read the shapefiles were `sp`, `raster`, and `leaflet`.
 
 
-### Folder structure
+## App Functionality 
 
-| Folder | Contents |
-|-|-|
-| clean_data | The cleaned and joined data produced by the script *data_cleaning.R* |
-| documentation | Further information on the project, including summary report for presentation |
-| raw_data | The source data for the project - see details below |
-| scripts | Code used to clean and join raw data files, and to select clean data for the app |
+The app has five tabs which display data on different topics:
+
+- %s of Scottish females smoking and their obesity levels
+- Overview of Total Births and percentage of low weight births
+- Low Weight Births % by deprivation rating
+- Low Weight Birth % by Area
+- Low Weight Birth % by population density
+
+### Images
+
+## Images
+### Overview of two general health indicators reported by females
+<img src = "images/overview.png" width = "600" height = "450">
+
+###  Overview of Total Births and percentage of low weight births
+<img src = "images/over_time.png" width = "600" height = "450">
+
+### Low Weight Birth % by deprivation rating
+<img src = "images/deprivation.png" width = "600" height = "450">
+
+### Low Weight Birth % by Area
+<img src = "images/by_area.png" width = "600" height = "450">
+
+### Low Weight Birth % by population density
+
+<img src = "images/by_classification.png" width = "600" height = "450">
 
 
-### Source data
+### References
+Data was sourced from www.gov.scot, and map files from https://gadm.org/download_country_v3.html.
 
-The project uses data from the https://statistics.gov.scot website downloaded as csv files, along with map data from https://gadm.org/download_country_v3.html
+For specific data sets used, please see links below:
 
-**Please note that the csv and map files are not stored on git hub as some of them are very large**
+1. **Scottish Health Survey-Scotland level data:** https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-health-survey-scotland-level-data
+2. **Low birth weight data:** https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight
+3. **Data zone lookup:** https://statistics.gov.scot/data/data-zone-lookup
+4. **Scottish Index of Multiple Deprivation (SIMD) 2020:** https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation
+5. **Map data:** https://gadm.org/download_country_v3.html
 
-If you would like to recreate this project, please follow the instructions below on where to find the data, and the location and filenames to use when you save them:
-
-
-| File | Download From | Save As | Description |
-|-|-|-|-|
-| Scottish Health Survey-Scotland level data | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-health-survey-scotland-level-data | raw_data/health_scotland.csv | Indicators of population health and related risk factors from the Scottish Health Survey (2008-2019) |
-| Low birth weight data | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight | raw_data/birth_weight.csv | Number, and percent, of low birthweight (less than 2500g) babies (single births) |
-| Data zone lookup | https://statistics.gov.scot/data/data-zone-lookup | raw_data/datazone_2011_lookup.csv | Geography lookup tables used for aggregation, from 2011 data zones to higher  level geographies |
-| Scottish Index of Multiple Deprivation (SIMD) 2020 | https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation | raw_data/SIMD.csv | Source for the quintile of data zones in Scotland from 1 (most deprived) to 5 (least deprived |
-| Map data | https://gadm.org/download_country_v3.html | Select country *UK* and click *Geopackage* This downloads a folder called *gadm36_GBR_gpkg*, which should be saved in raw_data | Map reference data used to show council areas |
 
 
