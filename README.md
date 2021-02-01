@@ -50,20 +50,20 @@ The app has five tabs which display data on different topics:
 
 ## Images
 ### Overview of two general health indicators reported by females
-<img src = "images/overview.png" width = "600" height = "450">
+<img src = "images/overview.png" width = "750" height = "450">
 
 ###  Overview of Total Births and percentage of low weight births
-<img src = "images/over_time.png" width = "600" height = "450">
+<img src = "images/over_time.png" width = "750" height = "450">
 
 ### Low Weight Birth % by deprivation rating
-<img src = "images/deprivation.png" width = "600" height = "450">
+<img src = "images/deprivation.png" width = "750" height = "450">
 
 ### Low Weight Birth % by Area
-<img src = "images/by_area.png" width = "600" height = "450">
+<img src = "images/by_area.png" width = "750" height = "450">
 
 ### Low Weight Birth % by population density
 
-<img src = "images/by_classification.png" width = "600" height = "450">
+<img src = "images/by_classification.png" width = "750" height = "450">
 
 
 ### References
