@@ -2,7 +2,7 @@
 | -----------                           | ----------- |
 | Dashboard Project - Health in Scotland| 2021-02-01  |
 
-# Dashboard Project - Public Health in Scotland Interactive Dashboard
+# Interactive Dashboard Project - Public Health in Scotland
 
 
 
@@ -33,7 +33,7 @@ We worked on the group project in remote working environment. Communication, col
 
 ## Packages Used
 
-The main packages used for cleaning and analysis were `tidyverse`, `janitor`, and `ggpubr`. The packages used to manipulate the spacial data and to read the shapefiles were `sp`, `raster`, and `leaflet`.
+The main packages used for cleaning and analysis were `tidyverse`, `janitor`, and `ggpubr`. The packages used to manipulate the spacial data and to read the shape files were `sp`, `raster`, and `leaflet`. The packages used to build the dashboard were `shinythemes` and `shiny`.
 
 
 ## App Functionality 
@@ -46,9 +46,8 @@ The app has five tabs which display data on different topics:
 - Low Weight Birth % by Area
 - Low Weight Birth % by population density
 
-### Images
-
 ## Images
+
 ### Overview of two general health indicators reported by females
 <img src = "images/overview.png" width = "750" height = "450">
 
