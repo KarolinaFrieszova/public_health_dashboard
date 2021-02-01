@@ -26,10 +26,6 @@ There are a few things to consider when looking at low-weight births. The first 
 The second is that low-weight births are not the only risky categeory when looking at the weight of the child. High weight births (over 4000 grams at birth) are also considered unhealthy, and may be caused obesity or maternal diabetes. However, low-weight birth is more likely than over-weight births to be a reflection of underlying social issues such as alcohol and drug abuse, and lack of social services.
 
 
-
-
-
-
 #The dashboard outlines our health topic in terms of …
 Stages of the project
 
@@ -37,14 +33,12 @@ Stages of the project
     Git branching & version control
     Choosing datasets
 
-and so on …
 Which tools were used in the project
 
     Zoom (daily stand-ups and occasional mob programming)
     Trello (planning & task allocation)
     Git/GitHub (collaboration & version control)
 
-and so on …
 #How did you gather and synthesise requirements for the project?
 
 We began by investigating the statistics.gov.scot website, and taking a preliminary look at all of the dataframes as individuals, as well as examining the Scottish Index of Multiple Deprivation (SIMD) and. We then grouped and discussed different dataframes that we had found interesting, and how they could tie in with the brief that we had been assigned. One idea was to look at the relationship between physical health and distance from residence to a green space, but we decided against the idea when we took into account areas which were deprived but also rural, of which there are many in Scotland. 
@@ -52,18 +46,13 @@ We began by investigating the statistics.gov.scot website, and taking a prelimin
 We discussed finding an angle that was not related to drugs and alcohol, and settled on the metric of Low Weight Births. Low Weight Births in a society can be considered a strong indicator of several factors, including underlying maternal health issues, lack health services, and poor prenatal care. We found a dataframe that had Datazone specific entries, which we believed would allow us to be very precise with the data.
 
 
-We synthesised the information given in the brief by looking up seeking a dataframe that would give us the corresponding health board code and council area codes for every Datazone code we had, as well as information that told us how rural or urban an area was, and where it fell on the SIMD quintile scale. 
+We synthesized the information given in the brief by looking up seeking a dataframe that would give us the corresponding health board code and council area codes for every Datazone code we had, as well as information that told us how rural or urban an area was, and where it fell on the SIMD quintile scale. 
 
 
 We spent the weekend cleaning the data and understanding it better, we then split up tasks with Tom and Neil looking to glean some information from the data and linking it to SIMD, Karolina analysing the data  for trends and different ways to present it, and Graham working on the UI.
 
 
-We used the Q&A session with ‘the client’ to check level of detail they wanted to see in the report, to ensure that we were following the biref correctly, and to ask 
-
-
-
-
-We prioritised creating a 
+We used the Q&A session with ‘the client’ to check level of detail they wanted to see in the report, to ensure that we were following the brief correctly.
 
 
 #Motivations for using the data you have chosen
@@ -71,8 +60,9 @@ The main priority for us was to have a dataset that would allow us to be as prec
 
 
 
-We used the dataset on … to answer … and because it was …
+#We used the dataset on Low Weigh Births (LWB) to answer whether there was a link between deprivation and low weight births because..
 
+For us, LWBs are a massive indicator of public health. It is the first metric that is taken of any human being, and can have huge factors in an indiviadual's life down the road. Every other health metric, be it mental or physical, follows LWB. We believed that we would be able to draw a connection between the topic and deprivation, proving that the issue is something that could be addressed with intelligent policy.
 
 #Data quality and potential bias, including a brief summary of data cleaning and transformations
 
@@ -85,23 +75,24 @@ One interesting and as-of-yet unresolved issue that we ran into was the contradi
 
 
 
+#How is the data on statistics.gov.scot stored and structured
+
+The data available on the website covers almost all aspects of public life, from health to crime, education, and the workforce. It is pulled from multiple public sector bodies, such as Public Health Scotland, The National Registry, and Registers of Scotland. The website provides an interface to browse data by different zones, including council area, postcode, regional health board, and election wards. Furthermore, there is a dashboard providing an overview of the key facts around the Scottish population, including births, deaths, and number of households. All of this leads to convenience in honing in on datasets that we might be seeking. 
 
 
+#The data on statistics.gov.scot is in the form of...
 
-How is the data on statistics.gov.scot stored and structured
+CSV files.
 
-[Hint: This page offers a good starting point for understanding the data structure: https://guides.statistics.gov.scot/article/34-understanding-the-data-structure]
+This means that we have to read the datasets in using the read_csv function, and then preferably clean the names up with the clean_names function from the janitor package. 
 
-The data on statistics.gov.scot is in the form of …
+#Ethical and legal considerations of the data are...
 
-This means …
+Less than there would be with highly sensitive information. Morever, with our project we did not worry hugely about any ethical consequences. However, we did feel that a bad actor could use the geographical data available on deprivation (SIMD) in a harmful way, maybe targeting certain areas with advertising for payday loans or other harmful products. 
 
-Benefits of storing the data like this are …
-Ethical and legal considerations of the data
 
-[Hint: this page contains information on the Open Government License which covers most datasets on statistics.gov.scot: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/]
+#The datasets are covered by the Open Government License, which meant two things to us: 
 
-There are no/There may be ethical considerations, because …
-
-The datasets are covered by the Open Government License, which means …
+1. We had freedom to analyse and distribute the results as we chose, since all of the information was under public domain and not private to an employer, for example.
+2. We knew that we could generally rely on the data as it was offically endorsed by the Scottish government, a highly credible source. 
 
