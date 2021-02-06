@@ -25,7 +25,7 @@ shinyUI(fluidPage(
                      br()
                  ),
                  fluidRow(
-                     column(12,
+                     column(6, 
                             checkboxGroupInput(
                                 "smoking_select",
                                 tags$i("Select survey indicator:"),
@@ -33,6 +33,15 @@ shinyUI(fluidPage(
                                             "Never or occasionally smoked", 
                                             "Used to smoke regularly"),
                                 selected = "Current smoker"
+                            )
+                     ),
+                     column(6, 
+                            checkboxGroupInput(
+                                "female_weight_select",
+                                tags$i("Select survey indicator:"),
+                                choices = c("Obese", 
+                                            "Overweight (including obese)"),
+                                selected = "Obese"
                             )
                      )
                  ),
