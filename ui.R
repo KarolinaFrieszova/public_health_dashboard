@@ -32,7 +32,6 @@ shinyUI(fluidPage(
                          plotOutput("f_weight")
                      )
                  )
-                 
         ),
         tabPanel("Over time",
                  fluidRow(
@@ -44,16 +43,13 @@ shinyUI(fluidPage(
                                  h4("Has the number of births changed over time?", 
                                     style = "color:#feb24c"),
                                  plotOutput("all_births_plot")
-                     
                           ),
                           column(6,
                                  h4("Does percentage of low weight births differ over time?",
                                     style = "color:#feb24c"),
                                  plotOutput("percentage_by_years")
                           )
-                          
                  )
-                 
         ),
         tabPanel("By Deprivation",
                  fluidRow(
@@ -70,17 +66,14 @@ shinyUI(fluidPage(
                                style = "color:#feb24c")
                      )
                  ),
-                 
                  fluidRow(
                      column(7,
                             plotOutput("deprivation_plot")
-                         
                      ),
                      column(5,
                             plotOutput("correlation_graph")
                      )
                  )
-            
         ),
         tabPanel("By Area",
                  fluidRow(
@@ -88,40 +81,68 @@ shinyUI(fluidPage(
                             h4("Does the percentage of low weight births differ 
                                across areas?", style = "color:#feb24c")
                      )
-                     
                  ),
                  fluidRow(
                      column(7,
                             h4("By Council Area"),
                             leafletOutput(outputId = "map_plot")
-                            
                      ),
                      column(5,
                             h4("By Health Board"),
                             plotOutput("health_board_graph")
-                         
                      )
                  )
         ),
-            
         tabPanel("Urban Rural",
                  fluidRow(
                      column(12, align="center",
                             h4("Is urban or rural location important?", style = "color:#feb24c"),
                             br()
                      )
-                     
                  ),
                  fluidRow(
                      column(12,
                             plotOutput("percentage_ur_graph")
                      )
                  )
-            
-        )#,
-#        tabPanel("About",
-                 
-#        )
+        ),
+        tabPanel("About",
+                 fluidRow(
+                     column(3, align="center",
+                            br(),
+                            br(),
+                            br(),
+                            br(),
+                            br(),
+                            img(src = "healthier_scotland.png", height = 150, width = 150)
+                     ),
+                     column(8, 
+                            h2("Interactive Dashboard Project - Public Health in Scotland"),
+                            br(),
+                            h4("Welcome to the web application created using R studio 
+                              and Shiny functionality to explore health data in Scotland.",
+                               style = "color:#feb24c"),
+                            br(),
+                            h4("This tool is designed to allow the user to explore data on 
+                              low birth weight. Birth weight is an important health indicator, 
+                              because low birth weight increases the risk of childhood 
+                              mortality and of developmental problems for the child, 
+                              and is associated with poorer health in later life.",
+                               style = "color:#feb24c"),
+                            br(),
+                            h4("The dashboard allowed an exploration of key health factors 
+                              which have an impact on birthweight, along with an analysis 
+                              of the data over time, by geographical area, and by level 
+                              of deprivation.",
+                               style = "color:#feb24c"),
+                            br(),
+                            h4("Data was sourced from the Scottish Government.",
+                              style = "color:#feb24c")
+                     ),
+                     column(1
+                     )
+                 )
+       )
     )
 ))
 

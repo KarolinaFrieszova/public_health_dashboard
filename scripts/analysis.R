@@ -9,6 +9,19 @@ birth_weight <- read_csv("clean_data/birth_weight_summary.csv")
 health_scotland <- read_csv("raw_data/health_scotland.csv") %>% 
   clean_names()
 
+# create a custom ggplot theme for all plots
+graph_theme <- function(){
+  theme(
+    plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
+    axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
+    axis.title.x = element_text(size = 15, hjust = 0.5),
+    axis.text.y = element_text(vjust = 0.6, size = 12),
+    axis.title.y = element_text(size = 15, hjust = 0.5),
+    legend.title = element_text(size = 15),
+    legend.text = element_text(size = 12)
+  )
+}
+
 # 1. calculate the percentage of low birth weight by health board
 birth_weight_hb <- birth_weight %>% 
   group_by(health_board_name) %>% 
@@ -19,17 +32,13 @@ birth_weight_hb <- birth_weight %>%
 birth_weight_hb_graph <- birth_weight_hb %>% 
   ggplot()+
   aes(x = reorder(health_board_name, percent_lbw_by_hb), y = percent_lbw_by_hb)+
-  geom_col(col = "black", fill = "#1b9e77")+
+  geom_col(col = "black", fill = "#1b9e77")+ 
   theme_linedraw()+
   coord_flip()+
   labs(x = "Health board",
        y = "\nLow weight births (%)")+
-       #title = "% of low birth weight by Health Board\n")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
-        axis.text.x = element_text(vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5))
+  graph_theme()+
+  theme(axis.text.x = element_text(angle = 0))
 
 
 # 2. calculate the percentage of low birth weight by Urban Rural Classification over our time period
@@ -44,18 +53,12 @@ birth_weight_ur_graph <- birth_weight_ur %>%
   aes(x = urban_rural_2_name, y = percent_lbw_by_ur, fill = urban_rural_2_name) +
   geom_col(col = "black")+
   facet_grid(~date_code)+
-  #coord_flip()+
   theme_linedraw()+
   labs(x = "\nClassification",
        y = "Low weight births (%)\n",
        title = "% of Low weight births by Rural Urban Classification\n")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
-        axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5),
-        strip.text = element_text(size = 12, hjust = 0.5))+
-    scale_fill_manual(values = c("#d95f02", "#1b9e77"), guide = FALSE)
+  graph_theme()+
+  scale_fill_manual(values = c("#d95f02", "#1b9e77"), guide = FALSE)
   
 
 # 3. calculate the percentage low birth weight by 3 aggregate years
@@ -73,11 +76,7 @@ birth_weight_year_graph <- birth_weight_year %>%
   labs(x = "\n3 year aggregate",
        y = "Low weight births (%)\n",
        title = "% of low weight births\n")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
-        axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5))
+  graph_theme()
 
 
 # 4. calculate the total number of births
@@ -94,11 +93,7 @@ total_births_by_year_graph <- total_births_by_year %>%
   labs(x = "\n3 year aggregate",
        y = "Births (1000 units)\n",
        title = "Total number\n")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face ="bold"),
-        axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5))
+  graph_theme()
 
 # 5. correlation between SIMD and percentage of low weight births
 correlation_graph <- birth_weight %>%
@@ -111,11 +106,7 @@ correlation_graph <- birth_weight %>%
             color = "#1c9099")+
   theme_linedraw()+
   labs(title = "Relation between low birth weight and SIMD\n")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
-        axis.text.x = element_text(vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5))
+  graph_theme()
 
 # 6. general health dataset - looking at percentage of female smoking
 
@@ -142,13 +133,7 @@ female_smoking_graph <- health_scotland %>%
     x = "\nyear",
     y = "(%)\n",
     colour = "Survey indicator")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
-        axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5),
-        legend.title = element_text(size = 15),
-        legend.text = element_text(size = 12))+
+  graph_theme()+
   scale_color_manual(values = c("#7570b3", "#1c9099", "#c51b8a"))
 
 
@@ -174,13 +159,7 @@ female_weight <- health_scotland %>%
     x = "\nyear",
     y = "(%)\n",
     colour = "Survey indicator")+
-  theme(plot.title = element_text(size = 20, hjust = 0.5, face="bold"),
-        axis.text.x = element_text(angle = 15, vjust = 0.6, size = 12),
-        axis.title.x = element_text(size = 15, hjust = 0.5),
-        axis.text.y = element_text(vjust = 0.6, size = 12),
-        axis.title.y = element_text(size = 15, hjust = 0.5),
-        legend.title = element_text(size = 15),
-        legend.text = element_text(size = 12))+
+  graph_theme()+
   scale_color_manual(values = c("#d95f02","#1b9e77"))
 
 
