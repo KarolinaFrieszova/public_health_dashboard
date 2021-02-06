@@ -76,5 +76,12 @@ For specific data sets used, please see links below:
 4. **Scottish Index of Multiple Deprivation (SIMD) 2020:** https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fscottish-index-of-multiple-deprivation
 5. **Map data:** https://gadm.org/download_country_v3.html
 
+### The script running order
+1. clean_data.R
+2. graph_input_deprivation.R / geographic_code.R / analysis.R
+3. ui.R / server.R
+
+
+
 
 

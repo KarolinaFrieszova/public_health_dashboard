@@ -170,6 +170,3 @@ make_female_weight <- function(female_weight_select){
     scale_color_manual(values = c("Obese" = "#d95f02",
                                   "Overweight (including obese)" = "#1b9e77"))
 }
-
-
-
