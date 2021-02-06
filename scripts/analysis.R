@@ -110,7 +110,39 @@ correlation_graph <- birth_weight %>%
 
 # 6. general health dataset - looking at percentage of female smoking
 
-female_smoking_graph <- health_scotland %>% 
+make_female_smoking_graph <- function(smoking_select){
+  health_scotland %>% 
+    dplyr::select(-c(units, feature_code)) %>% 
+    filter(scottish_health_survey_indicator %in% c("Smoking status: Current smoker",
+                                                   "Smoking status: Never smoked/Used to smoke occasionally",
+                                                   "Smoking status: Used to smoke regularly")) %>% 
+    dplyr::mutate(scottish_health_survey_indicator = 
+                    recode(scottish_health_survey_indicator,
+                           "Smoking status: Current smoker" = "Current smoker",
+                           "Smoking status: Never smoked/Used to smoke occasionally" = "Never or occasionally smoked",
+                           "Smoking status: Used to smoke regularly" = "Used to smoke regularly")) %>% 
+    filter(measurement == "Percent",
+           sex == "Female") %>% 
+    dplyr::filter(scottish_health_survey_indicator == smoking_select) %>% 
+    ggplot()+
+    aes(x = date_code, y = value, group = scottish_health_survey_indicator, 
+        colour = scottish_health_survey_indicator)+
+    geom_line(size = 3)+
+    scale_x_continuous(breaks = c(2009, 2011, 2013, 2015, 2017, 2019))+
+    theme_linedraw()+
+    labs(
+      title = "% of adult females smoking cigarettes\n",
+      x = "\nyear",
+      y = "(%)\n",
+      colour = "Survey indicator")+
+    graph_theme()+
+    scale_color_manual(values = c("Current smoker" = "#7570b3", 
+                                  "Never or occasionally smoked" = "#1c9099", 
+                                  "Used to smoke regularly" = "#c51b8a"))
+}
+
+
+ffemale_smoking_graph <- health_scotland %>% 
   dplyr::select(-c(units, feature_code)) %>% 
   filter(scottish_health_survey_indicator %in% c("Smoking status: Current smoker",
                                                  "Smoking status: Never smoked/Used to smoke occasionally",

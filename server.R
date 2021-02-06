@@ -14,8 +14,13 @@ shinyServer(function(input, output) {
     })
     
     output$f_smoking_graph <- renderPlot({
-      female_smoking_graph
+      make_female_smoking_graph(input$smoking_select)
     })
+    
+    
+#    output$f_smoking_graph <- renderPlot({
+#      female_smoking_graph
+#    })
     
     output$f_weight <- renderPlot({
       female_weight
