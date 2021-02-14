@@ -50,7 +50,7 @@ The app has five tabs which display data on different topics:
 ## Images
 
 ### Overview of two general health indicators reported by females
-<img src = "images/overview.png" width = "750" height = "450">
+<img src = "images/interactive_overview.png" width = "750" height = "450">
 
 ###  Overview of Total Births and percentage of low weight births
 <img src = "images/over_time.png" width = "750" height = "450">
