@@ -2,7 +2,4 @@
 .Rhistory
 .RData
 .DStore
-*.csv
-*.rds
-*.gpkg
 *.txt
